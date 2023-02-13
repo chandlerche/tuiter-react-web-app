@@ -41,7 +41,7 @@ body{
 }
 
 .wd-a-item.active{
-    color: rgb(29,161,242);
+    color: rgb(29,161,22);
     /*color:rgb(110,118,125);*/
 }
 
@@ -195,4 +195,10 @@ body{
     .hidden-lg {
         display: none;
     }
+}
+
+
+.wd-underline{
+    border-bottom-style: solid ;
+    border-bottom-color:  dodgerblue;
 }
