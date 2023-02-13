@@ -120,3 +120,79 @@ body{
     margin-right: 16px;
     border-radius: 20px 20px 20px 20px;
 }
+
+.wd-icon-navigation{
+    /*float: left;
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 10px;
+    clear: bottom;*/
+    border-style: none;
+
+
+}
+
+.wd-nav-border {
+    border-style: solid;
+    border-color: lightgray;
+    border-top: 0px;
+    width: 150px;
+    height: 40px;
+}
+
+.wd-nav-border-first-top{
+    border-top: 1px;
+    border-style: solid;
+    border-color: lightgray;
+
+}
+
+.wd-nav-twitter-logo{
+
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 10px;
+
+}
+
+.wd-tweet-bnt{
+
+    position: absolute;
+
+    margin-left: 50px;
+    width: 150px;
+
+}
+
+
+.wd-search-logo{
+    bottom:10px;
+    left:35px;
+}
+
+.wd-search-gear{
+    top:15px;
+}
+
+.wd-follow-logo{
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 768px){
+    .hidden-xs{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .hidden-sm{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .hidden-lg {
+        display: none;
+    }
+}
