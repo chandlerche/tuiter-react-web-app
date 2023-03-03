@@ -1,14 +1,14 @@
 import {Link}
     from "react-router-dom";
 
-function HelloWorld() {
+function Tuiter() {
     return(
         <div>
             <Link to="/">Lab</Link> |
             <Link to="/hello">Hello</Link> |
             <Link to="/tuiter">Tuiter</Link>
-            <h1>Hello World!</h1>
+            <h1>Tuiter</h1>
         </div>
     )
-};
-export default HelloWorld;
+}
+export default Tuiter
