@@ -16,6 +16,8 @@ const ExploreComponent = () => {
                        bi-gear-fill fs-2 position-relative"></i>
                 </div>
             </div>
+
+
             <ul className="nav nav-pills mb-2">
                 <li className="nav-item">
                     <a className="nav-link active">For You</a>
@@ -27,6 +29,8 @@ const ExploreComponent = () => {
                     <a className="nav-link">News</a>
                 </li>
             </ul>
+
+
             <div className="position-relative mb-2">
                 <img src="/images/starship.jpg" className="w-100"/>
                 <h1 className="position-absolute wd-nudge-up text-white">

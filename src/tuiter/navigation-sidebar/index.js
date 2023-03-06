@@ -7,6 +7,7 @@ const NavigationSidebar = () => {
     const paths = pathname.split('/')
     const active = paths[2];
     return (
+        <div>
         <div className="list-group">
             <a className="list-group-item">Tuiter</a>
             <Link to="/tuiter/home" className={`list-group-item ${active === 'home'?'active':''}`}>
@@ -39,6 +40,12 @@ const NavigationSidebar = () => {
                     ${active === 'more'?'active':''}`}>
                 More
             </a>
+        </div>
+        <div className="d-grid mt-2">
+            <a href="tweet.html"
+               className="btn btn-primary btn-block rounded-pill">
+                Tweet</a>
+        </div>
         </div>
     );
 };
