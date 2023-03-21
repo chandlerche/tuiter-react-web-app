@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import PostSummaryItem
     from "./post-summary-item";
-import who from "../who-to-follow-list/who.json";
+
 
 const PostSummaryList = () => {
     const postsArray = useSelector(state => state.tuits)
@@ -11,7 +11,7 @@ const PostSummaryList = () => {
             {
                 postsArray.map(post =>
                                    <PostSummaryItem
-                                       key={who._id} post={post}/> )
+                                       key={post._id} post={post}/> )
             }
         </ul>
     );
