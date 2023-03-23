@@ -12,8 +12,8 @@ const ProfileItem = (
             "firstName": "Jianhua",
             "lastName": "Che",
             "handle": "@jche2364",
-            "profilePicture": "Fan.png",
-            "bannerPicture": "polyglot.png",
+            "profilePicture": "bob.jpg",
+            "bannerPicture": "banner.jpg",
             "bio": "MSCS student at NEU, Software Engineer, AI, Space, and renewable enthusiast.",
             "website": "youtube.com/webdevtv",
             "location": "Boston, MA",
@@ -39,11 +39,11 @@ const ProfileItem = (
             </div>
 
             <div >
-                <img width={'100%'} className="float pe-0 pt-2 pb-2 " alt={"post-img"} src={`/images/${item.bannerPicture}`}/>
+                <img width={'100%'} className="float pe-0 pt-2 pb-2 " alt={"post-img"} src={`${item.bannerPicture}`}/>
             </div>
 
             <div >
-                <img width={100} className="  rounded-pill " alt={"profilePicture"} src={`/images/${item.profilePicture}`}/>
+                <img width={100} className="  rounded-pill " alt={"profilePicture"} src={`${item.profilePicture}`}/>
                 <Link to="/tuiter/edit-profile">
                     <button onClick={()=>editProfileClickButton()}
                             className="btn btn-primary rounded-pill float-end pt-2">Edit Profile</button>

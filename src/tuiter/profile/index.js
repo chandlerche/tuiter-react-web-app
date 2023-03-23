@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import ProfileItem from "./profile-item";
 
 const ProfileComponent = () => {
-    const profileArray = useSelector(state => state.profile)
+    const profileArray = useSelector(state => state.profileInfo)
     return (
         <>
             {
