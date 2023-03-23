@@ -47,28 +47,30 @@ const EditProfileItem = (
     return(
 
         <li className="list-group-item">
-            <div className="col-1 flex">
+            <div className="d-flex">
+                <div className="p-2">
                 <Link to="/tuiter/profile" >
-                    <i className="fa fa-window-close mt-2"/>
+                    <i className="fa fa-times mt-2"/>
                 </Link>
-            </div>
+                </div>
 
-            <div>
-                <div className="fs-6 fw-bold">Edit Profile</div>
+                <div className="fs-4 fw-semibold p-2">Edit Profile</div>
 
+                <div className="ms-auto p-2">
                 <Link to="/tuiter/profile">
                     <button onClick={()=>editProfileClickHandler(profileInfoConst)}
-                            className="btn btn-dark rounded-pill float-end pt-2">Save</button>
+                            className="btn btn-dark rounded-pill float-end pt-2 fw-semibold">Save</button>
                 </Link>
+                </div>
             </div>
 
 
             <div >
-                <img width={'100%'} className="float pe-0 pt-2 pb-2 " alt={"post-img"} src={`/images/${item.bannerPicture}`}/>
+                <img width={'100%'} className="float pe-0 pt-2 pb-2 " alt={"post-img"} src={`${item.bannerPicture}`}/>
             </div>
 
             <div >
-                <img width={100} className="  rounded-pill " alt={"profilePicture"} src={`/images/${item.profilePicture}`}/>
+                <img width={100} className="  rounded-pill " alt={"profilePicture"} src={`${item.profilePicture}`}/>
 
             </div>
 
