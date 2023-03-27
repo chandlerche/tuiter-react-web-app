@@ -1,25 +1,108 @@
-import React from "react";
-import EditProfileItem from "../edit-profile/edit-profile-item";
-import {useSelector} from "react-redux";
+import React, { useState } from "react";
+import {useSelector,useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
+import {changeFName,updateProfile} from "../profile/profile-reducer.js"
+import { useNavigate } from 'react-router';
 
 
 const EditProfileComponent = () => {
-    const editProfileArray = useSelector(state => state.editProfile)
+    let navigate = useNavigate();
+    function handleClick() {
+        navigate('/tuiter/profile')
+    }
+    const profile = useSelector(state => state.profile);
+    const dispatch = useDispatch();
+
+    const [FName,setFirstName] = useState(profile.firstName);
+    const [LName,setLastName] = useState(profile.lastName);
+    const [Bio,setBio] = useState(profile.bio);
+    const [Birthdate,setBirthdate] = useState(profile.dateOfBirth);
+    const [Location,setLocation] = useState(profile.location);
+    const [Web,setWeb] = useState(profile.website)
+
+    const changeFNameHandler = (newFName) => {
+        dispatch(changeFName(newFName))
+    }
+
+    const doneEditingProfile = (profile) => {
+        dispatch(updateProfile({...profile, firstName:FName,lastName:LName,location:Location,bio:Bio,dateOfBirth:Birthdate,website:Web}));
+    }
 
     return(
-        <>
-            {
 
-                editProfileArray.map(item =>
-                                         <EditProfileItem
-                                             key={item._id}
-                                             item={item}
-                                         />
-                )
-            }
+        <div className = "container border border-light rounded">
+            <div className="d-flex">
+                <div className="p-2">
+                    <Link to="/tuiter/profile" >
+                        <i className="fa fa-times mt-2"/>
+                    </Link>
+                </div>
+
+                <div className="fs-4 fw-semibold p-2">Edit Profile</div>
+
+                <div className="ms-auto p-2">
+                    <Link to="/tuiter/profile">
+                        <button onClick={() => {doneEditingProfile(profile);handleClick();}}
+                                className="btn btn-dark rounded-pill float-end pt-2 fw-semibold">Save</button>
+                    </Link>
+                </div>
+            </div>
 
 
-        </>
+            <div className = "col">
+                <img className = "img-fluid" src={profile.bannerPicture}></img>
+            </div>
+            <li className="list-group-item">
+                <div className="col-2">
+                    <img className = "rounded-circle" width = {150} height = {150} src={profile.profilePicture} style = {{"position":"relative","top":"-75px"}}></img>
+
+                </div>
+            </li>
+
+
+            <div className = "col">
+                <label htmlFor="firstname">First Name:</label>
+                <input type = "text" className="form-control" id = "firstname" onChange = {(e) => setFirstName(e.target.value)} value = {FName} style = {{"width":"200px"}}></input>
+            </div>
+
+            <br/>
+            <div className = "col">
+                <label htmlFor="lastname">Last Name:</label>
+                <input type = "text" className="form-control" id = "lastname" onChange = {(e) => setLastName(e.target.value)} value = {LName} style = {{"width":"200px"}}></input>
+            </div>
+
+            <br />
+            <div className = "col pt-2">
+                <label htmlFor="Bio">Bio:</label>
+                <textarea type = "text" className="form-control" id = "bio" onChange = {(e) => setBio(e.target.value)} value = {Bio} style = {{"height":"120px"}} ></textarea>
+            </div>
+
+            <br />
+            <div className = "col pt-2">
+                <label htmlFor="web">Website:</label>
+                <input type = "text" className="form-control" id = "web" onChange = {(e) => setWeb(e.target.value)} value = {Web} style = {{"width":"320px"}} ></input>
+            </div>
+
+            <br />
+            <div className = "col pt-3">
+                <label htmlFor="DOB">Date Of Birth:</label>
+                <input type = "date" className="form-control" id = "DOB" onChange = {(e) => setBirthdate(e.target.value)} value = {Birthdate} style = {{"width":"160px"}}></input>
+            </div>
+
+            <br />
+            <div className = "col pt-3 pb-1">
+                <label htmlFor="web">Personal Website:</label>
+                <input type = "text" className="form-control" id = "web" onChange = {(e) => setWeb(e.target.value)} value = {Web} style = {{"width":"300px"}}></input>
+            </div>
+
+            <br />
+            <div className = "col" className = "pt-3 pb-2 mb-2">
+                <label htmlFor="loication">Location:</label>
+                <input type = "text" className="form-control" id = "location" onChange = {(e) => setLocation(e.target.value)} value = {Location} style = {{"width":"200px"}}></input>
+            </div>
+            <br /><br /><br />
+        </div>
     );
 };
+
 export default EditProfileComponent;

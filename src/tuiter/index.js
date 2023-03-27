@@ -4,18 +4,11 @@ import NavigationSidebar from "./navigation-sidebar";
 import WhoToFollowList from "./who-to-follow-list";
 import {Routes, Route} from "react-router";
 import HomeComponent from "./home";
-import ProfileComponent from "./profile";
-import whoReducer from "./reducers/who-reducer";
-import tuitsReducer from "./tuits/tuits-reducer";
-import profileReducer from "./profile/profile-reducer";
-import { configureStore } from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
-import editProfileReducer from "./edit-profile/edit-profile-reducer";
+import store from "./store";
+import ProfileComponent from "./profile";
 import EditProfileComponent from "./edit-profile";
 
-
-const store = configureStore(
-    {reducer: {who: whoReducer, tuits: tuitsReducer, profileInfo: profileReducer, editProfile: editProfileReducer}});
 
 function Tuiter() {
     return (

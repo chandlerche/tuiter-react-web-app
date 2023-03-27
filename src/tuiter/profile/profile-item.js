@@ -1,94 +1,85 @@
 import React from "react";
-import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import editProfile from "./profile-reducer";
 
-
-
-const ProfileItem = (
+const ProfileBoard = (
     {
-        item = {
-
-            "firstName": "Jianhua",
-            "lastName": "Che",
-            "handle": "@jche2364",
-            "profilePicture": "bob.jpg",
-            "bannerPicture": "banner.jpg",
-            "bio": "MSCS student at NEU, Software Engineer, AI, Space, and renewable enthusiast.",
+        profile = {
+            "firstName": "Jianhua", "lastName": "Che", "handle": "@jche152","tweetNum":103,
+            "profilePicture": "bob.jpg", 	"bannerPicture": "banner.jpg",
+            "bio": "Computer Science Student. Currently looking for SDE interns",
             "website": "youtube.com/webdevtv",
-            "location": "Boston, MA",
-            "dateOfBirth": "10/26/1994",
-            "dateJoined": "09/2021",
-            "followingCount": 340,
-            "followersCount": 223
-        }
-    }
+            "location": "Boston, MA",	"dateOfBirth": "7/7/1968",	"dateJoined": "4/2009",
+            "followingCount": 340,	"followersCount": 223
+        }}
 ) => {
 
 
-    const editProfileClickButton = () => {
-
-    }
-    const dispatch = useDispatch();
-
     return(
-        <li className="list-group-item">
+        <div className = "container border border-light">
 
             <div className="fw-bolder fs-4 ps-5 pb-2">
-                {item.firstName} {item.lastName}
+                {profile.firstName} {profile.lastName}
             </div>
 
-            <div >
-                <img width={'100%'} className="float pe-0 pt-2 pb-2 " alt={"post-img"} src={`${item.bannerPicture}`}/>
+            <div className = "col">
+                <img className = "img-fluid" alt='#' src={profile.bannerPicture}></img>
             </div>
 
-            <div >
-                <img width={100} className="  rounded-pill " alt={"profilePicture"} src={`${item.profilePicture}`}/>
-                <Link to="/tuiter/edit-profile">
-                    <button onClick={()=>editProfileClickButton()}
-                            className="btn btn-primary rounded-pill float-end pt-2">Edit Profile</button>
-                </Link>
+            <li className="list-group-item">
+                <div className="col-2">
+                    <img className = "rounded-circle" alt='#' width = {150} height = {150} src={profile.profilePicture} style = {{"position":"relative","top":"-75px"}}></img>
+                    <Link to="/tuiter/edit-profile">
+                        <button className="rounded-pill btn btn-outline-dark float-start fw-bold" style = {{"position":"relative","right":"-515px","top":"-140px"}}>
+                            Edit Profile
+                        </button>
+                    </Link>
 
-            </div>
+                </div>
+                <div className="col-8" style = {{"position":"relative","top":"-40px","left":"-80px"}}>
+                    <h3 className="fw-bold">{profile.firstName} {profile.lastName}</h3>
+                    <div className = "text-secondary">{profile.handle}</div>
+                </div>
+                <div className = "row" style = {{"position":"relative","top":"-30px","left":"20px","right":"5px"}}>
+                    <h6>{profile.bio}</h6>
+                </div>
 
+                <div className = "row pt-2 pb-2" style = {{"position":"relative","top":"-30px","left":"20px","right":"5px"}}>
+                    <h6 className = "text-secondary">Personal Website: <a href = {profile.website}>{profile.website}</a></h6>
+                </div>
 
-            <div className=" fw-bolder">
+                <div className = "row pb-5 pt-1" style = {{position:"relative","left":"30px","width":"500","top":"-30px"}}>
+                    <div className = "col">
+                        <a href="/#" className = "text-decoration-none text-secondary">
+                            <i className="fa-solid fa-location-pin fa-lg text-secondary"></i>
+                            <span className = ""> {profile.location}</span>
+                        </a>
+                    </div>
 
-                {item.firstName} {item.lastName}
-                <div className="text-secondary fw-normal wd-text-post-small">{item.handle}</div>
-            </div>
+                    <div className = "col">
+                        <a href="/#" className = "text-decoration-none text-secondary">
+                            <i className="fa-solid fa-fire-flame-simple fa-lg"></i>
+                            <span className = ""> Born {profile.dateOfBirth}</span>
+                        </a>
+                    </div>
 
-            <div className="text-secondary  pe-1 pt-2 pb-2  wd-text-post-small">
-                {item.bio}
-
-            </div>
-
-
-            <div >
-
-                <i className={"fa fa-map-pin ps-1 pt-3 text-secondary"}/>
-                <label className=" ps-1 pe-5 pt-3 text-secondary" >{item.location}</label>
-
-                <i className={"fa fa-birthday-cake ps-1 pt-3 text-secondary"}/>
-                <label className=" ps-1 pe-5 pt-3 text-secondary">{item.dateOfBirth}</label>
-
-                <i className={"fa fa-calendar ps-1 pt-3 text-secondary"}/>
-                <label className=" ps-1 pe-5 pt-3 text-secondary">{item.dateJoined}</label>
-
-            </div>
-
-
-            <div >
-
-                <label className=" ps-1 pe-5 pt-3 text-secondary" >{item.followingCount} Following</label>
-
-                <label className=" ps-1 pe-5 pt-3 text-secondary">{item.followersCount} Followers</label>
-
-            </div>
-
-
-        </li>
+                    <div className = "col">
+                        <a href="/#" className = "text-decoration-none text-secondary">
+                            <i className="fa-solid fa-calendar-days fa-lg"></i>
+                            <span className = ""> Joined {profile.dateJoined}</span>
+                        </a>
+                    </div>
+                </div>
+                <div className = "row" style = {{position:"relative","left":"30px","width":"500","top":"-60px"}}>
+                    <div className = "col">
+                        <h6 className = "text-secondary"><span className = "text-dark"> {profile.followingCount}</span> Following</h6>
+                    </div>
+                    <div className = "col" style = {{position:"relative","left":"-150px"}}>
+                        <h6 className = "text-secondary"><span className = "text-dark">{profile.followersCount}</span> Followers</h6>
+                    </div>
+                </div>
+            </li>
+        </div>
     );
 };
 
-export default ProfileItem;
+export default ProfileBoard;

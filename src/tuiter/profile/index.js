@@ -1,18 +1,14 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import ProfileItem from "./profile-item";
+import ProfileBoard from "./profile-item.js"
 
 const ProfileComponent = () => {
-    const profileArray = useSelector(state => state.profileInfo)
-    return (
-        <>
-            {
-                profileArray.map(item =>
-                                   <ProfileItem
-                                       key={item._id} item={item}/> )
-            }
-        </>
 
+    const profile = useSelector(state => state.profile);
+    return(
+        <>
+            <ProfileBoard profile = {profile}/>
+        </>
     );
 };
 
