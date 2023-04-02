@@ -10,6 +10,7 @@ const TuitStats = ({post}) => {
     } else{
         heart_icon = <i className="fa fa-heart"></i>;
     }
+    let dislike_icon = <i className="bi bi-hand-thumbs-down"></i>
     return (
     <div >
         <i className={"fa fa-comment ps-1 pt-3 text-secondary"}/>
@@ -18,14 +19,19 @@ const TuitStats = ({post}) => {
         <i className={"fa fa-retweet ps-1 pt-3 text-secondary"}/>
         <label className=" ps-1 pe-5 pt-3 text-secondary">{post.retuits}</label>
 
-        <div>
-            {heart_icon}
-            <span className = "ps-1 pe-5 pt-3 text-secondary"> {post.likes}</span>
+        <>
             <i onClick={() => dispatch(updateTuitThunk({...post,
                                                            likes: post.likes + 1,
-                                                       liked: true}))}
-               className="bi bi-heart-fill me-2 text-danger"></i>
-        </div>
+                                                       liked: true}))}>{heart_icon}</i>
+            <span className = "ps-1 pe-5 pt-3 text-secondary"> {post.likes}</span>
+        </>
+
+        <>
+            <i onClick={() => dispatch(updateTuitThunk({...post,
+                                                           dislikes: post.dislikes + 1,
+                                                           disliked: true}))}>{dislike_icon}</i>
+            <span className = "ps-1 pe-5 pt-3 text-secondary"> {post.dislikes}</span>
+        </>
 
         <i className={"fa fa-external-link ps-1 pt-3 text-secondary"}/>
     </div>
