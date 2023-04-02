@@ -1,6 +1,12 @@
 import React from "react";
 
 const TuitStats = ({post}) => {
+    let heart_icon;
+    if (post.liked){
+        heart_icon = <i className="fa fa-heart ps-1 pt-3" style = {{"color":"red"}}></i>;
+    } else{
+        heart_icon = <i className="fa fa-heart"></i>;
+    }
     return (
     <div >
         <i className={"fa fa-comment ps-1 pt-3 text-secondary"}/>
@@ -9,8 +15,10 @@ const TuitStats = ({post}) => {
         <i className={"fa fa-retweet ps-1 pt-3 text-secondary"}/>
         <label className=" ps-1 pe-5 pt-3 text-secondary">{post.retuits}</label>
 
-        <i className={"fa fa-heart ps-1 pt-3 text-secondary"}/>
-        <label className=" ps-1 pe-5 pt-3 text-secondary">{post.likes}</label>
+        <a href="/#" className = "text-decoration-none text-secondary">
+            {heart_icon}
+            <span className = "ps-1 pe-5 pt-3 text-secondary"> {post.likes}</span>
+        </a>
 
         <i className={"fa fa-external-link ps-1 pt-3 text-secondary"}/>
     </div>
