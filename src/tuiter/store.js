@@ -6,7 +6,7 @@ import ProfileReducer from "./profile/profile-reducer.js"
 const store = configureStore({
     reducer: {
         who: whoReducer,
-        tuits: tuitsReducer,
+        tuitsData: tuitsReducer,
         profile:ProfileReducer
     }
 });
